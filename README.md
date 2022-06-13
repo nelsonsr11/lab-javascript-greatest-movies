@@ -49,16 +49,12 @@ The `src/data.js` contains an array of 250 movies. It is an array of 250 _object
 }
 ```
 
-
-
-You will be digging deeper into some "facts" that this data set has. For example, we can use this data set to find which is the most popular movie, what is the average duration of the movie, the list of movies by some director, etc. 
+You will be digging deeper into some "facts" that this data set has. For example, we can use this data set to find which is the most popular movie, what is the average duration of the movie, the list of movies by some director, etc.
 Well, there comes your challenge. In the next couple of iterations, you will be using your JS knowledge to manipulate this data.
 
 Remember to read each iteration description carefully before working on the solution.
 
 <br>
-
-
 
 ## Instructions
 
@@ -69,8 +65,6 @@ The `src/data.js` file containing the array of movies is also loaded in the `ind
 To run the JavaScript code, open the `index.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
 
 To see the output of your JavaScript code, open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
-
-
 
 <br>
 
@@ -96,6 +90,8 @@ We need to get the array of all directors. Since this is a warm up, we will give
 
 It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors. How could you "clean" a bit this array and make it unified (meaning, without duplicates)? _Don't prioritize the bonus part now, you can come back to it when you are done with the mandatory iterations._ :wink:
 
+Hint: remember how you found unique values in the lab ['functions-and-arrays'](https://github.com/IH-Miami/lab-javascript-functions-and-arrays)? Maybe you can try something similar here.
+
 <br>
 
 ### Iteration 2: Steven Spielberg. The best?
@@ -110,7 +106,7 @@ Go ahead and create a `howManyMovies()` function that receives an array as a par
 
 These are the best movies based on their scores, so supposedly all of them have a remarkable score. In this iteration, we want to know the average score of all of them and display it on the console. Create a `scoresAverage()` function that receives an array as a parameter and solves the challenge.
 
-The score must be returned rounded to 2 decimals!
+The score must be returned rounded to ['2 decimals'](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)!
 
 **:bulb: Maybe you want to _"reduce"_ the data to a single value. :wink:**
 
@@ -147,61 +143,13 @@ Create a `orderAlphabetically()` function, that receives an array and returns an
 
 <br>
 
-### BONUS - Iteration 7: Time format
-
-We get the info from the **IMDB** web page, but the duration info was saved in a format that difficult us a lot to compare movies.
-
-Finding the longest movie is almost impossible using that format, so let's change it!
-
-- Create a `turnHoursToMinutes()` function that receives an array as parameter, and with some _magic_ implemented by you - replaces the duration info of each of the movies for its equivalent in minutes. For example:
-
-```javascript
-{
-  "title":"The Shawshank Redemption",
-  "year":1994,
-  "director":"Frank Darabont",
-  "duration":"2h 22min",
-  "genre":["Crime","Drama"],
-  "score":9.3
-}
-```
-
-Should be:
-
-```javascript
-{
-  "title":"The Shawshank Redemption",
-  "year":1994,
-  "director":"Frank Darabont",
-  "duration":142,
-  "genre":["Crime","Drama"],
-  "score":9.3
-}
-```
-
-**Keep in mind**, you have to return a new array with all the info about movies, meaning, you shouldn't modify the original array.
-
-<br>
-
-### BONUS - Iteration 8: Best yearly score average
-
-We always hear so much about classic movies, but we want to know which year has the best average score, so we can declare the **BEST YEAR FOR CINEMA** officially!
-
-Go ahead and find which year have the best average score for the movies that were released on that year!
-Create `bestYearAvg()` function that receives an array of movies and gives us an answer which year was the best year for cinema and what was its average score. The `bestYearAvg()` should return a **string** with the following structure:
-<br>
-
-**The best year was \<YEAR\> with an average score of \<RATE\>**
-
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_dfc3fe557576abca4dba274e3aabe9a3.gif)
-
-
 
 <br>
 
 ## Test Your Code
 
-Ohh yes! We have our tests, and you already know how this works. Open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Next, run the tests by running the command `npm run test:watch`. 
+Ohh yes! We have our tests, and you already know how this works. Open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Next, run the tests by running the command `npm run test:watch`.
 
 In summary, the steps are:
 
@@ -213,11 +161,9 @@ $ npm run test:watch
 
 And last, open the generated `lab-solution.html` file with the "Live Server" VSCode extension to see test results.
 
-Remember to focus on one test at a time and read carefully the instructions to understand what you have to do. 
+Remember to focus on one test at a time and read carefully the instructions to understand what you have to do.
 
 The tests can be found in the `tests/movies.spec.js` file.
-
-
 
 <br>
 

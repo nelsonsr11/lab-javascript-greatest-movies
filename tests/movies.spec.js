@@ -5,9 +5,7 @@ const {
   scoresAverage,
   dramaMoviesScore,
   orderByYear,
-  orderAlphabetically,
-  turnHoursToMinutes,
-  bestYearAvg,
+  orderAlphabetically
 } = require('../src/movies');
 
 // Iteration 1
@@ -141,10 +139,6 @@ describe('Function "scoresAverage"', () => {
 
   it('should return 0 if an empty array is passed', () => {
     expect(scoresAverage([])).toBe(0);
-  });
-
-  it('should return average even if one of the movies does not have score', () => {
-    expect(scoresAverage([{ score: 6 }, { score: '' }, {}])).toBe(2);
   });
 });
 
@@ -390,79 +384,5 @@ describe('Function "orderAlphabetically"', () => {
       'gda',
       'gha'
     ]);
-  });
-});
-
-// ******************************************************************************************
-// *************************************** BONUS ********************************************
-// ******************************************************************************************
-
-// Iteration 7
-describe('Function "turnHoursToMinutes"', () => {
-  it('should be declared', () => {
-    expect(typeof turnHoursToMinutes).toBe('function');
-  });
-
-  it('should return an array', () => {
-    expect(turnHoursToMinutes(movies) instanceof Array).toBe(true);
-  });
-
-  it('should return a new array, not update the original one', () => {
-    expect(turnHoursToMinutes(movies)).not.toEqual(movies);
-  });
-
-  it('should return an array of movies with duration as a number', () => {
-    expect(typeof turnHoursToMinutes(movies)[0].duration).toBe('number');
-  });
-
-  it('should return an array of movies with the correct duration for a 31 minute movie', () => {
-    const movieTry = [{ duration: '0h 31min' }];
-    expect(turnHoursToMinutes(movieTry)[0].duration).toBe(31);
-  });
-
-  it('should return an array of movies with the correct duration for a 341 minute movie', () => {
-    const movieTry = [{ duration: '5h 41min' }];
-    expect(turnHoursToMinutes(movieTry)[0].duration).toBe(341);
-  });
-
-  it('should return an array of movies with the correct duration for a 2 hour movie', () => {
-    const movieTry = [{ duration: '2h' }];
-    expect(turnHoursToMinutes(movieTry)[0].duration).toBe(120);
-  });
-});
-
-// Iteration 8
-describe('Function "bestYearAvg"', () => {
-  it('should be declared', () => {
-    expect(typeof bestYearAvg).toBe('function');
-  });
-
-  it('should return null if the array is empty', () => {
-    expect(bestYearAvg([])).toBe(null);
-  });
-
-  it('should return the correct answer to a single element array', () => {
-    expect(bestYearAvg([{ year: 2007, score: 8 }])).toEqual(
-      'The best year was 2007 with an average score of 8'
-    );
-  });
-
-  it('should return the correct answer to a multiple elements array', () => {
-    expect(bestYearAvg(movies)).toEqual(
-      'The best year was 1972 with an average score of 9.2'
-    );
-  });
-
-  it('should return the oldest year when there is a tie', () => {
-    const newMoviesArr = [
-      { year: 2000, score: 9 },
-      { year: 2000, score: 8 },
-      { year: 1978, score: 10 },
-      { year: 1978, score: 7 }
-    ];
-
-    expect(bestYearAvg(newMoviesArr)).toEqual(
-      'The best year was 1978 with an average score of 8.5'
-    );
   });
 });
