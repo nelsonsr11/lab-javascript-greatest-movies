@@ -1,7 +1,7 @@
 // const movies = require("./data");
 
 // The `movies` array from the file `src/data.js`.
-console.log('movies: ', movies);
+// console.log('movies: ', movies);
 
 // Iteration 1: All directors? - Get the array of all directors.
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
@@ -11,9 +11,9 @@ function getAllDirectors(num) {
     return movie.director
   });
   
-  return directors
+  return directors;
 }
- console.log(getAllDirectors(movies))
+//  console.log(getAllDirectors(movies))
 
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
@@ -23,14 +23,17 @@ function howManyMovies(num) {
     return best.director === 'Steven Spielberg' && best.genre.includes('Drama')
   });
 
-  return Steven;
+  return Steven.length;
 
 }
 
-  console.log(howManyMovies(movies))
+  // console.log(howManyMovies(movies))
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 function scoresAverage(num) {
+  if(num.length === 0){
+    return 0;
+  }
   let average = num.reduce (function(a,b){
     return a+b.score;
   },0)
@@ -38,22 +41,28 @@ function scoresAverage(num) {
   return Number((average / num.length).toFixed(2))
 
 }
-console.log(scoresAverage(movies))
+// console.log(scoresAverage(movies))
 
 
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(num) {
+ 
   let filter = num.filter(function (fil){
     return fil.genre.includes('Drama')
-  })
+  });
+
+  if(filter.length === 0){
+    return 0;
+  }
+
   let average = filter.reduce (function(a,b){
    return a+b.score
    },0)
   
   return Number((average / filter.length).toFixed(2))
 }
-console.log(dramaMoviesScore(movies))
+// console.log(dramaMoviesScore(movies))
   
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
@@ -68,10 +77,19 @@ function orderByYear(num) {
   },0)
   return yearLol;
 }
-console.log(orderByYear(movies))
+// console.log(orderByYear(movies))
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically() {}
+function orderAlphabetically(num) {
+  let alph = [...num];
+  alph.sort(function(a,b){
+    return a.title.localeCompare(b.title);
+  })
+ return alph.slice(0,20).map(function(movie){
+  return movie.title
+ });
+}
+// console.log(orderAlphabetically(movies))
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
